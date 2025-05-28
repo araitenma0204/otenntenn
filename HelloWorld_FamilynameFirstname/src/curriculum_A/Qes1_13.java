@@ -23,7 +23,7 @@ public class Qes1_13 {
 		f = 0.0f;
 		d = 0.0;
 		c = '\u0000';
-		st = "";
+		st = null;
 		bo = false;
 
 		// Q_3
@@ -108,7 +108,7 @@ public class Qes1_13 {
 
 		// Q_9
 		// 自己代入で変数を変更
-
+		
 		age += age;
 		height += height;
 		weight += weight;
@@ -125,40 +125,35 @@ public class Qes1_13 {
 		System.out.println("BMIは" + String.format("%.2f", rawBmi) + "です");
 
 		// Q_10
-		//8で使用した年齢が25歳以上ならtrueが出力されるよう出力。ただしif文は使いません
-
-		System.out.println(age >= 25);
-
-		// Q_11
-
+		// 8で使用した年齢が25歳以上ならtrueが出力されるよう出力。ただしif文は使いません
 		// 年齢、身長、体重を再代入でQ_8の状態に戻す
-
+		
 		age = 24;
 		height = 168.5;
 		weight = 64.2;
+		System.out.println(age >= 25);
 
-		//8で使用した【年齢・身長・体重】を文字列型に型変換し繋げて出力
+		// Q_11
+		// 8で使用した【年齢・身長・体重】を文字列型に型変換し繋げて出力
 
 		String strage = String.valueOf(age);
 		String strheight = String.valueOf(height);
 		String strweight = String.valueOf(weight);
-
 		System.out.println(strage + strheight + strweight);
 
 		// Q_12
 		// 11で変換した【年齢・身長】を整数型に変換して出力。
-		//ageは小数点がないためそのまま文字列から整数に変換可能
+		// ageは小数点がないためそのまま文字列から整数に変換可能
 		// heightは小数点有りの文字列の為 double(数値) に変換
 
 		int intage = Integer.parseInt(strage);
 		double doubleHeight = Double.parseDouble(strheight);
 		int intheight = (int) doubleHeight;
-
 		System.out.println(intage);
 		System.out.println(doubleHeight);
 
 		// Q_13
-		//12で変換した【年齢・身長】で【年齢が25もしくは身長が160以上】であればtrueを出力してください
+		// 12で変換した【年齢・身長】で【年齢が25もしくは身長が160以上】であればtrueを出力してください
 		System.out.println(intage >= 25 || doubleHeight >= 160);
-	}
+		}
 }
