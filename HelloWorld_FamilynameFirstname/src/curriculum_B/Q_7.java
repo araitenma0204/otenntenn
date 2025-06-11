@@ -1,67 +1,67 @@
 package curriculum_B;
 
-//乱数を作るためのクラスを読み込み
-import java.util.Random;
 import java.util.Scanner;
 
 public class Q_7 {
 
 	public static void main(String[] args) {
 
-		// 入力の準備
-		// 「、」を入力したら改行
 		Scanner scanner = new Scanner(System.in);
-		System.out.println("商品を「、」で区切って入力してください：");
-		String input = scanner.nextLine();
-		String[] items = input.split("、");
+		int N;//人数の変数を宣言
 
-		//在庫の乱数生成
-		
-		Random random = new Random();
-		
-		//テレビとディスプレイの共通在庫
-		//０～１１のランダムなテレビ在庫
-		
-		final int MAX_TV = 11;
-		int tvStock = random.nextInt(MAX_TV + 1);
-		
-		//何が入力されたかの表示
+		//do whileでNが2以上になるまで再実行
 
-		for (String item : items) {
-			System.out.println("入力された商品：" + item);
-			
-			//個別の商品の0~11のランダム在庫数(テレビの共通在庫は後で上書きする)
+		do {
+			System.out.print("生徒の人数を入力してください（2以上）：");
+			N = scanner.nextInt();
+		} while (N < 2);
 
-			int num = random.nextInt(12);
-			
-			////それぞれ独立してランダム在庫を表示
-			
-			switch (item) {
-			case "パソコン":
-			case "冷蔵庫":
-			case "扇風機":
-			case "洗濯機":
-			case "加湿器":
-				System.out.println(item + "の残り台数は" + num + "です");
-				break;
-				
-			//テレビとディスプレイの合計は１１台になるように
-				
-			case "テレビ":
-			case "ディスプレイ":
-				
-			num = item.equals("テレビ") ? tvStock : MAX_TV - tvStock;
-                System.out.println(item + "の残り台数は" + num + "です");
-                break;
+		//教科ごとの配列を宣言
+		//二次元配列の宣言
 
-            //取り扱い外の商品の表示
-			default:
-				System.out.println("『" + item + "』は指定の商品ではありません");
-				break;
+		String[] subjects = { "英語", "数学", "理科", "社会" };
+		int[][] scores = new int[N][4];
+		double totalSum = 0;
+
+		//二重for文
+		//iは０だから表示がおかしくなるから＋１する
+		//教科ごとの点数を回してから次の人の点数に移る
+
+		for (int i = 0; i < N; i++) {
+			for (int j = 0; j < 4; j++) {
+				System.out.printf("%d人目の「%s」の点数を入力してください: ", i + 1, subjects[j]);
+				scores[i][j] = scanner.nextInt();
+
 			}
+		}
+
+		//〇人目の平均点を出す
+
+		for (int i = 0; i < N; i++) {
+			int sum = 0;
+			for (int j = 0; j < 4; j++) {
+				sum += scores[i][j];
+			}
+			double avg = sum / 4.0;
+			totalSum += sum;
+			System.out.printf("%d人目の平均点は %.2f 点です。\n", i + 1, avg);
 
 		}
 
+		//二重for文で大枠を教科にして教科ごとの平均点を出す
+
+		for (int j = 0; j < 4; j++) {
+			int sum = 0;
+			for (int i = 0; i < N; i++) {
+				sum += scores[i][j];
+			}
+			double avg = sum / N;
+			System.out.printf("%sの平均点は %.2f 点です。\n", subjects[j], avg);
+		}
+
+		//totalSumを人数×４教科で割って全体の平均点を出す
+
+		System.out.printf("全体の平均点は %.2f 点です。\n", totalSum / (N * 4.0));
 	}
 
 }
