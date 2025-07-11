@@ -11,8 +11,8 @@ public class Q_5 {
 		// 一行目の条件が縦軸
 		// 二行目の条件が横軸（中身）
 
-		for (int j = 1; j <= 9; j++) {
-			for (int i = 1; i <= 20; i++) {
+		for (int j = 1; j <= 9; j++) { // j＝縦軸
+			for (int i = 1; i <= 20; i++) { // i=横軸
 				int ans = i * j;
 
 				// %03d=3桁ゼロ埋め（最後のi=20以外）
