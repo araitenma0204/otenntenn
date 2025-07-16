@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
+import Curriculum_29_logic.KansaiPrefecture;
 import Curriculum_29_logic.PrefectureLogic;
 
 public class PrefectureApp {
@@ -24,7 +25,19 @@ public class PrefectureApp {
 				new PrefectureLogic("茨城県", "水戸市", 6097),
 				new PrefectureLogic("栃木県", "宇都宮市", 6408),
 				new PrefectureLogic("群馬県", "前橋市", 6362),
-				new PrefectureLogic("埼玉県", "さいたま市", 3798)
+				new PrefectureLogic("埼玉県", "さいたま市", 3798),
+				
+				 //関西子クラス追加分（一応三重県も）
+				
+				new KansaiPrefecture("大阪府", "大阪市", 1905),
+		        new KansaiPrefecture("京都府", "京都市", 4613),
+				new KansaiPrefecture("兵庫県", "神戸市", 8400),
+				new KansaiPrefecture("滋賀県", "大津市", 4017),
+			    new KansaiPrefecture("奈良県", "奈良市", 3691),
+				new KansaiPrefecture("和歌山県", "和歌山市", 4725),
+			    new KansaiPrefecture("三重県", "津市", 5774),
+			    
+				
 
 		};
 		System.out.println("番号をカンマ区切りで入力して下さい（例:1,3,5)");
