@@ -38,7 +38,7 @@ public class AnimalApp {
             int weight = 0;
 
             try {
-                speed = Double.parseDouble(parts[1]);//コンソールに入力している値は文字列だから変換してる
+                speed = Double.parseDouble(parts[1]); //コンソールに入力している値は文字列だから変換してる
                 weight = Integer.parseInt(parts[2]);
             } catch (NumberFormatException e) {
                 System.out.println("速度または重量が数値として正しくありません。");
