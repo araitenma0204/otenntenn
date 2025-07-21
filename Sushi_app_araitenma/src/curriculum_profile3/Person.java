@@ -1,6 +1,6 @@
 package curriculum_profile3;
 
-class Person {
+public class Person {
 	private static int count = 0;
 	private String firstName;
 	private String lastName; //フィールドに追加
