@@ -49,14 +49,20 @@ public class Person {
 	}
 
 	public double bmi() {
-		return getWeight() / (getHeight() * getHeight());
+	    double heightInMeter = getHeight();  // すでにメートル
+	    double bmiValue = getWeight() / (heightInMeter * heightInMeter);
+	    double truncated = Math.floor(bmiValue);  // 小数点以下を切り捨てて整数に
+	    return truncated;  // 戻り値は double なので "20.0" のように出力される
 	}
+
+
 
 	public void print() {
 		System.out.println("名前は" + this.getName() + "です");
 		System.out.println("年は" + this.getAge() + "です");
-		System.out.printf("BMIは%.2fです\n", this.bmi());
+		System.out.println("BMIは" + this.bmi() + "です");
 	}
+
 
 	public static void printTotal() {
 		System.out.println("合計" + count + "人です");
